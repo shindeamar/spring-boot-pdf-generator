@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: spring-boot-persistence
+  profiles:
+    active: "dev"
+  main:
+    banner-mode: "off"
+
+#setting port to 0 helps choosing any available port during service startup
+server:
+  port: 0
+  error:
+    whitelabel:
+      enabled: false
+---
+spring:
+  profiles: dev
+logging:
+  level:
+    .: DEBUG
+    org.springframework: DEBUG
+    com.ctl: DEBUG
+  file: ./log/pdfGenerator.log
+  pattern:
+    console: "%d %-6level [%t] %logger{25} - %msg %n"
+    file: "%d %-6level [%t] %logger{25} - %msg %n"
